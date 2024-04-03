@@ -14,8 +14,11 @@
       </div>
       {% endif %}
     </div>
-    <h2 class="article-title">{{ object.title }}</h2>
-    <p class="article-content">{{ object.content }}</p>
+    <div>
+      <img class="mr-3" src="{{object.image.url}}" alt="" width="350" />
+      <h2 class="article-title">{{ object.title }}</h2>
+      <p class="article-content">{{ object.content }}</p>
+    </div>
   </div>
 </article>
 {% endblock content %}

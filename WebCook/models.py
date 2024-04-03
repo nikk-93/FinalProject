@@ -19,7 +19,7 @@ class Recipe(models.Model):
     content = models.TextField()
     steps = models.TextField()
     cooking_time = models.IntegerField()
-    image = models.ImageField(default='blackdog.jpg', upload_to='recipes')
+    image = models.ImageField(upload_to='recipes')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     categories = models.ManyToManyField(Category, through='RecipeCategory')
     date_posted = models.DateTimeField(default=timezone.now)

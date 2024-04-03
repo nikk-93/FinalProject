@@ -2,7 +2,7 @@
 {% block content %}
 {% for recipe in recipes %}
 <article class="media content-section">
-  <img class="rounded-circle article-img" src="{{ recipe.author.profile.image.url }}">
+  <img class="mr-3" src="{{recipe.image.url}}" alt="" width="350" />
   <div class="media-body">
     <div class="article-metadata">
       <a class="mr-2" href="{% url 'user-recipes' recipe.author.username %}">{{ recipe.author }}</a>

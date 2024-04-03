@@ -13,7 +13,7 @@ from .models import Recipe
 
 def home(request):
     context = {
-        'Recipe': Recipe.objects.all()
+        'recipes': Recipe.objects.all()
     }
     return render(request, 'WebCook/home.html', context)
 
