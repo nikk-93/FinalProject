@@ -31,8 +31,8 @@ if os.environ.get("DEBUG") == "False":
 else:
     DEBUG = True
 
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = os.environ.get("SESSION_COOKIE_SECURE")
+CSRF_COOKIE_SECURE = os.environ.get("CSRF_COOKIE_SECURE")
 
 ALLOWED_HOSTS = ["127.0.0.1", "webcook.pythonanywhere.com"]
 
