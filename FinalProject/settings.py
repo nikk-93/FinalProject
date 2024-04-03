@@ -36,6 +36,7 @@ CSRF_COOKIE_SECURE = os.environ.get("CSRF_COOKIE_SECURE")
 
 ALLOWED_HOSTS = ["127.0.0.1", "webcook.pythonanywhere.com"]
 
+CSRF_TRUSTED_ORIGINS = ['http://*', 'https://*']
 
 # Application definition
 
