@@ -4,26 +4,33 @@
             <img src="{{recipe.image.url}}" class="img-fluid rounded-start rounded" alt="...">
         </div>
         <div class="col-md-8">
-            <div class="card-body">
-                {% comment %} <img class="rounded-circle article-img" src="{{ recipe.author.profile.image.url }}">
-                {% endcomment %}
-                <a class="mr-2" href="{% url 'user-recipes' recipe.author.username %}">{{ recipe.author }}</a>
-                <small class="text-muted">{{ recipe.date_posted|date:"F d, Y" }}</small>
-                <h5 class="card-title">{{recipe.title}}</h5>
-                <p class="card-text">{{recipe.description}}</p>
-                <div>
-                    {% if btn_detail %}
-                    <a href="{% url 'recipe-detail' recipe.id %}" class="btn btn-primary">Подробно</a>
-                    {% endif %}
+            <div class="row">
+                <div class="card-body col-md-9">
+                    <small class="text-muted">{{ recipe.date_posted|date:"F d, Y" }}</small>
+                    <h5 class="card-title">{{recipe.title}}</h5>
+                    <p class="card-text">{{recipe.description}}</p>
+                    <div>
+                        {% if btn_detail %}
+                        <a href="{% url 'recipe-detail' recipe.id %}" class="btn btn-primary">Подробно</a>
+                        {% endif %}
 
-                    {% if btn_edit %}
-                    <a class="btn btn-secondary btn-sm mt-1 mb-1"
-                        href="{% url 'recipe-update' recipe.id %}">Редактировать</a>
-                    {% endif %}
+                        {% if btn_edit %}
+                        <a class="btn btn-secondary btn-sm mt-1 mb-1"
+                            href="{% url 'recipe-update' recipe.id %}">Редактировать</a>
+                        {% endif %}
 
-                    {% if btn_delete %}
-                    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'recipe-delete' recipe.id %}">Удалить</a>
-                    {% endif %}
+                        {% if btn_delete %}
+                        <a class="btn btn-danger btn-sm mt-1 mb-1"
+                            href="{% url 'recipe-delete' recipe.id %}">Удалить</a>
+                        {% endif %}
+
+                    </div>
+                </div>
+                <div class="col-md-3 container text-center position-relative">
+                    <img class="rounded-circle article-img" src="{{ recipe.author.profile.image.url }}">
+                    <div>
+                        <a class="mr-2" href="{% url 'user-recipes' recipe.author.username %}">{{ recipe.author }}</a>
+                    </div>
                 </div>
             </div>
         </div>
