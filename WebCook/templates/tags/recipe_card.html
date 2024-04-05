@@ -26,10 +26,13 @@
 
                     </div>
                 </div>
-                <div class="col-md-3 container text-center position-relative">
-                    <img class="rounded-circle article-img" src="{{ recipe.author.profile.image.url }}">
-                    <div>
-                        <a class="mr-2" href="{% url 'user-recipes' recipe.author.username %}">{{ recipe.author }}</a>
+                <div class="col-md-3 container text-center">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img class="rounded-circle article-img" src="{{ recipe.author.profile.image.url }}">
+                        <div class="text-center">
+                            <a class="mr-2"
+                                href="{% url 'user-recipes' recipe.author.username %}">{{ recipe.author }}</a>
+                        </div>
                     </div>
                 </div>
             </div>
