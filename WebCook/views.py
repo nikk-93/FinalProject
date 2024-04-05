@@ -11,13 +11,6 @@ from django.views.generic import (
 from .models import Recipe
 
 
-def home(request):
-    context = {
-        'recipes': Recipe.objects.all()
-    }
-    return render(request, 'WebCook/home.html', context)
-
-
 def about(request):
     return render(request, 'WebCook/about.html', {'title': 'О сайте'})
 
@@ -47,7 +40,8 @@ class RecipeDetailView(DetailView):
 
 class RecipeCreateView(LoginRequiredMixin, CreateView):
     model = Recipe
-    fields = ['title', 'content', 'cooking_time', 'categories', 'image']
+    fields = ['title', 'description', 'content',
+              'cooking_time', 'categories', 'image']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -56,7 +50,8 @@ class RecipeCreateView(LoginRequiredMixin, CreateView):
 
 class RecipeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Recipe
-    fields = ['title', 'content', 'cooking_time', 'categories', 'image']
+    fields = ['title', 'description', 'content',
+              'cooking_time', 'categories', 'image']
 
     def form_valid(self, form):
         form.instance.author = self.request.user

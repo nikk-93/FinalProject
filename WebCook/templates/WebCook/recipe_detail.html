@@ -1,24 +1,9 @@
-{% extends "WebCook/base.html" %}
-
+{% extends "base.html" %}
 {% block content %}
-<article class="media content-section">
-  <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
-  <div class="media-body">
-    <div class="article-metadata">
-      <a class="mr-2" href="{% url 'user-recipes' object.author.username %}">{{ object.author }}</a>
-      <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
-      {% if object.author == user %}
-      <div>
-        <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'recipe-update' object.id %}">Редактировать</a>
-        <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'recipe-delete' object.id %}">Удалить</a>
-      </div>
-      {% endif %}
-    </div>
-    <div>
-      <img class="mr-3" src="{{object.image.url}}" alt="" width="350" />
-      <h2 class="article-title">{{ object.title }}</h2>
-      <p class="article-content">{{ object.content }}</p>
-    </div>
-  </div>
-</article>
+{% load news_tags %}
+{% if object.author == user %}
+{% show_recipe recipe=object explain=True btn_edit=True btn_delete=True %}
+{% else %}
+{% show_recipe recipe=object explain=True %}
+{% endif %}
 {% endblock content %}
