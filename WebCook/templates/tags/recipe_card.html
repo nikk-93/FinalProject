@@ -1,9 +1,9 @@
 <div class="card mb-3" style="max-width: 100%;">
-    <div class="card-header">
-        <div class="text-end">
+    <div class="card-header d-flex justify-content-end">
+        <div>
+            <a class="mr-2" href="{% url 'user-recipes' recipe.author.username %}">{{ recipe.author }}</a>
             <img class="rounded-circle article-img img-responsive img-rounded"
                 src="{{ recipe.author.profile.image.url }}" style="max-height: 30px; max-width: 30px;">
-            <a class="mr-2" href="{% url 'user-recipes' recipe.author.username %}">{{ recipe.author }}</a>
         </div>
     </div>
     <div class="row g-0">
