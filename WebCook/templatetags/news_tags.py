@@ -9,7 +9,6 @@ def show_recipe(recipe,
                 btn_detail=False,
                 btn_edit=False,
                 btn_delete=False):
-    print(recipe)
     return {"recipe": recipe,
             "btn_detail": btn_detail,
             "btn_edit": btn_edit,
